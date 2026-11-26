@@ -8,6 +8,7 @@ import '../widgets/app_choice_chip.dart';
 import '../widgets/book_cards.dart';
 import 'detail_page.dart';
 import 'list_page.dart';
+import 'online_page.dart';
 import 'settings_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -177,6 +178,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SliverPadding(
+            padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
+            sliver: SliverToBoxAdapter(child: _onlineEntry(l)),
+          ),
+          SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
             sliver: SliverToBoxAdapter(
               child: Row(
@@ -236,6 +241,60 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  Widget _onlineEntry(L10n l) {
+    return Material(
+      color: const Color(0xFFFCEAF1),
+      borderRadius: BorderRadius.circular(16),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => Navigator.of(context).pushNamed(OnlinePage.routeName),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(9),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.cloud_outlined,
+                  color: Color(0xFFB45E7C),
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l.onlineLibrary,
+                      style: const TextStyle(
+                        color: Color(0xFF7A3F55),
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      l.onlineSubtitle,
+                      style: const TextStyle(
+                        color: Color(0xFF9A6278),
+                        fontSize: 11.5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right, color: Color(0xFFB45E7C)),
+            ],
+          ),
+        ),
       ),
     );
   }

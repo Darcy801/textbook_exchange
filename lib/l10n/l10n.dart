@@ -98,6 +98,38 @@ class L10n {
   String get networkError =>
       t('网络连接失败，请检查网络后重试', 'Network failed. Check your connection and retry.');
 
+  String get onlineLibrary => t('在线书库', 'Online library');
+
+  String get onlineSubtitle =>
+      t('课程数据集 · 36 本 · 支持离线缓存', 'Course dataset · 36 books · cached offline');
+
+  String get cachedNotice => t(
+    '当前显示缓存数据，网络恢复后可刷新',
+    'Showing cached data. Refresh when the network is back.',
+  );
+
+  String cacheAt(String time) => t('缓存于 $time', 'Cached at $time');
+
+  String get loadMore => t('正在加载更多…', 'Loading more…');
+
+  String get noMore => t('没有更多了', 'No more books');
+
+  String get emptyOnline => t('在线书库暂时没有数据', 'No books in the online library');
+
+  String get onlineBookNote => t(
+    '数据来自课程统一数据集，只读展示；收藏与发布仍保存在本机。',
+    'Read-only data from the course dataset. Saved books and listings stay on this device.',
+  );
+
+  String get dataSource => t(
+    '数据来源：课程统一数据集 · myblog.thiswind.work',
+    'Source: course dataset · myblog.thiswind.work',
+  );
+
+  String rating(int value) => t('评分 $value', 'Rating $value');
+
+  String popularity(int value) => t('热度 $value', '$value borrows');
+
   String get retry => t('重试', 'Retry');
 
   String get loading => t('加载中…', 'Loading…');
@@ -180,8 +212,8 @@ class L10n {
   String get about => t('关于', 'About');
 
   String get aboutBody => t(
-    '课程期末项目 · Flutter 实现\n本地数据，无需后端',
-    'Final course project · Flutter\nLocal data, no backend',
+    '课程期末项目 · Flutter 实现\n本地数据 + 课程数据集在线书库（只读）',
+    'Final course project · Flutter\nLocal data plus a read-only online library from the course dataset',
   );
 
   String get version => t('版本 1.0.0', 'Version 1.0.0');
@@ -207,8 +239,8 @@ class L10n {
   String get localData => t('本地数据存储', 'Local storage');
 
   String get localDataBody => t(
-    '设置、收藏和我发布的书都保存在本机，使用 shared_preferences 键值存储。数据量小、整体读写、不涉及敏感信息，符合第 10 课的选型三问；重启应用后仍然保留。',
-    'Settings, saved books and my listings are stored on this device with shared_preferences: small key-value data, no sensitive fields. Everything survives an app restart.',
+    '设置、收藏和我发布的书都保存在本机，使用 shared_preferences 键值存储。在线书库的缓存也复用同一通道，先显示旧数据，再静默刷新。数据量小、整体读写、不涉及敏感信息，符合第 10 课的选型三问；重启应用后仍然保留。',
+    'Settings, saved books and my listings are stored on this device with shared_preferences. The online library cache uses the same channel: show cached data first, then refresh in the background. Small key-value data, no sensitive fields, and everything survives an app restart.',
   );
 
   String storageStats(int listings, int saved) => t(

@@ -6,6 +6,7 @@ import 'l10n/l10n.dart';
 import 'pages/detail_page.dart';
 import 'pages/list_page.dart';
 import 'pages/main_shell.dart';
+import 'pages/online_page.dart';
 import 'pages/settings_page.dart';
 import 'state/catalog_model.dart';
 import 'state/favorites_model.dart';
@@ -158,6 +159,11 @@ class _AppView extends StatelessWidget {
       case SettingsPage.routeName:
         return MaterialPageRoute<void>(
           builder: (_) => const SettingsPage(),
+          settings: settings,
+        );
+      case OnlinePage.routeName:
+        return MaterialPageRoute<void>(
+          builder: (_) => const OnlinePage(),
           settings: settings,
         );
     }

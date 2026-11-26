@@ -148,6 +148,12 @@ class SettingsPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
+                  l.dataSource,
+                  style: Theme.of(context).textTheme.bodySmall
+                      ?.copyWith(color: scheme.onSurfaceVariant, height: 1.5),
+                ),
+                const SizedBox(height: 10),
+                Text(
                   l.version,
                   style: Theme.of(context).textTheme.bodySmall
                       ?.copyWith(color: scheme.onSurfaceVariant),
